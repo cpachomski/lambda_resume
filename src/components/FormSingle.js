@@ -29,20 +29,21 @@ export default class FormSingle extends Component{
 	}
 
 	render() {
-		const {position, removePosition} = this.props
+		const {position, removePosition, idx} = this.props
 
 		return (
 			<div className='form--position'>
+				<span className='form--number'>{idx + 1}</span>
+				<label>Job Title</label>
 				<input type='text' placeholder='Position Title' name='title' />
+				<label>Employer</label>
 				<input type='text' placeholder='Employer' name='employer' />
+				<label>Location</label>
 				<input type='text' placeholder='Location' name='location' />
+				<label>Description</label>
 				<textarea type='text-area' placeholder='Description' name='description' />
 				<ul className='form--technologies'>
-					<p>Technologies: 
-					<button className="form--add-tech"
-							value={[position.id]}
-							onClick={this.addTechnology.bind(this)}>+</button>
-					</p>
+					<label>Technologies</label>
 					{
 						this.state.techs.map((tech) => {
 							return (
@@ -54,12 +55,16 @@ export default class FormSingle extends Component{
 							)
 						})
 					}
+					<div className='form--technology-controls'>
+						<button className="form--add-tech"
+								value={[position.id]}
+								onClick={this.addTechnology.bind(this)}>Add Tech &nbsp; &nbsp;+</button>
+					</div>
 				</ul>
 					<button className='form--remove-position'
 									value={position.id}
 									onClick={removePosition.bind(this)}>remove position</button>
 
-				<hr/>
 			</div>
 		)
 	}

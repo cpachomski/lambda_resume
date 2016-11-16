@@ -22,9 +22,75 @@ body {
 	vertical-align: middle;
 }
 
-.form--container {
-	max-width: 900px;
-	border: 3px solid #F58536;
-	margin: 25px auto;
-	overflow: hidden;
+hr {
+	border-top-color: #f58536;
+}
+
+.form--border {
+	max-width: 500px;
+	margin: 50px auto;
+}
+
+.form--position {
+	position: relative;
+	padding-left: 50px;
+}
+
+.form--position .form--number {
+	position: absolute;
+	color: #f58536;
+	left: -50px;
+	top: -50px;
+	font-size: 125px;
+}
+
+.form--border > h3 {
+	text-align: center;
+	padding-bottom: 15px;
+}
+
+.form--position input,
+.form--position textarea {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	margin: 15px auto 25px;
+
+}
+
+.form--technology {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.form--technology input {
+	width: 80%;
+	margin: 0px;
+	margin-left: 0px;
+}
+
+.form--technology button {
+	width: 15%;
+	margin-bottom: 0px;
+
+}
+
+.form--technology-controls {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+
+
+input:focus,
+textarea:focus,
+button:focus {
+	border: 1px solid #f58536 !important;
+}
+
+li {
+	list-style: none;
 }
