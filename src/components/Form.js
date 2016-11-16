@@ -26,7 +26,13 @@ export default class Form extends Component {
 	}
 
 	addPosition() {
-		const newId = this.state.history[this.state.history.length - 1].id + 1
+		let newId;
+		if (this.state.history.length > 0) {
+			newId = this.state.history[this.state.history.length - 1].id + 1
+		} else { 
+			newId = 1 
+		}
+
 		const newPosition = {id: newId}
 		const history = [...this.state.history, newPosition]
 		this.setState({history})
@@ -42,7 +48,7 @@ export default class Form extends Component {
 
 	render() {
 		const { history } = this.state;
-
+		console.log(this.state)
 		return (
 			<div className='form--container'>
 				<h2>Work History</h2>

@@ -23,7 +23,7 @@ export default class FormSingle extends Component{
 
 	render() {
 		const {position, removePosition} = this.props;
-		console.log(this.state)
+
 		return (
 			<div className='form--position'>
 				<input type='text' placeholder='Position Title' name='title' />
@@ -46,14 +46,10 @@ export default class FormSingle extends Component{
 						})
 					}
 				</ul>
-				{ 
-					position.id !== 1 ?
-							<button className='form--remove-position'
+					<button className='form--remove-position'
 									value={position.id}
 									onClick={removePosition.bind(this)}>remove position</button>
 
-					: null
-				}
 				<hr/>
 			</div>
 		)
