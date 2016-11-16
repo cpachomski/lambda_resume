@@ -34,6 +34,7 @@ hr {
 .form--position {
 	position: relative;
 	padding-left: 50px;
+	margin-bottom: 35px;
 }
 
 .form--position .form--number {
@@ -57,6 +58,7 @@ hr {
 	margin: 15px auto 25px;
 
 }
+
 
 .form--technology {
 	display: flex;
@@ -83,6 +85,32 @@ hr {
 	align-items: center;
 }
 
+
+.form--controls {
+	margin: 15px 0px;
+}
+
+.form--controls > button {
+	display: block;
+	width: 100%;
+}
+
+.form--controls > input {
+	display: block;
+	position: relative;
+	width: 100%;
+	border: 1px solid #f58536;
+	color: #f58536;
+}
+.form--controls > input:hover,
+.form--controls > input:focus  {
+	display: block;
+	position: relative;
+	width: 100%;
+	border: 1px solid #f58536;
+	color: white;
+	background-color: #f58536;
+}
 
 
 input:focus,
