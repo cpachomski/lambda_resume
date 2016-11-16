@@ -19,8 +19,7 @@ export default class Form extends Component {
 
 		this.state = {
 			history: [
-				{ id: 1 },
-				{ id: 2 }
+				{ id: 1 }
 			]
 		}
 	}
@@ -47,8 +46,8 @@ export default class Form extends Component {
 
 
 	render() {
-		const { history } = this.state;
-		console.log(this.state)
+		const { history } = this.state
+		
 		return (
 			<div className='form--container'>
 				<h2>Work History</h2>

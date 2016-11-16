@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 export default class FormSingle extends Component{
 
-
 	componentWillMount() {
 		this.setState({
 			techs: [{id: 1}]
@@ -18,11 +17,14 @@ export default class FormSingle extends Component{
 	}
 
 	removeTechnology(e) {
-		e.preventDefault(e)	
+		e.preventDefault(e)
+		const techId = parseInt(e.target.value, 0)
+		const techs = this.state.techs.filter((t) => t.id !== techId)
+		this.setState({techs})
 	}
 
 	render() {
-		const {position, removePosition} = this.props;
+		const {position, removePosition} = this.props
 
 		return (
 			<div className='form--position'>
