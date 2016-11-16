@@ -10,7 +10,12 @@ export default class FormSingle extends Component{
 
 	addTechnology(e) {
 		e.preventDefault(e)
-		const newId = this.state.techs[this.state.techs.length - 1].id + 1	
+		let newId;
+		if(this.state.techs.length > 0) {
+			newId = this.state.techs[this.state.techs.length - 1].id + 1	
+		} else {
+			newId = 0;
+		}
 		const newTech = {id: newId}	
 		const techs = [...this.state.techs, newTech]
 		this.setState({techs})
@@ -33,9 +38,11 @@ export default class FormSingle extends Component{
 				<input type='text' placeholder='Location' name='location' />
 				<textarea type='text-area' placeholder='Description' name='description' />
 				<ul className='form--technologies'>
+					<p>Technologies: 
 					<button className="form--add-tech"
 							value={[position.id]}
 							onClick={this.addTechnology.bind(this)}>+</button>
+					</p>
 					{
 						this.state.techs.map((tech) => {
 							return (
