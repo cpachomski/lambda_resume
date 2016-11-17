@@ -4,6 +4,9 @@ body {
   font-family: sans-serif;
 }
 
+.app--container {
+	min-width: 600px;
+}
 
 .app--container > h1,
 .app--container > p  {
