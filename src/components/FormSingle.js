@@ -32,7 +32,7 @@ export default class FormSingle extends Component{
 		const {position, removePosition, idx} = this.props
 
 		return (
-			<div className='form--position'>
+			<form className='form--position' ref='historyForm'>
 				<span className='form--number'>{idx + 1}</span>
 				<label>Job Title</label>
 				<input type='text' placeholder='Position Title' name='title' />
@@ -65,7 +65,7 @@ export default class FormSingle extends Component{
 									value={position.id}
 									onClick={removePosition.bind(this)}>remove position</button>
 
-			</div>
+			</form>
 		)
 	}
  

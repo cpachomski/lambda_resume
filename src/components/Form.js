@@ -8,7 +8,8 @@ export default class Form extends Component {
 		this.state = {
 			history: [
 				{ id: 1 }
-			]
+			],
+			jobs: []
 		}
 	}
 
@@ -33,16 +34,42 @@ export default class Form extends Component {
 		this.setState({history})
 	}
 
+	handleSubmit(e) {
+		let jobs = []
+		const forms = document.getElementsByClassName('form--position') 
+		Array.prototype.forEach.call(forms, (form) => {
+			let jobHistory = {};
+
+			jobHistory.title = form.title.value
+			jobHistory.employer = form.employer.value
+			jobHistory.location = form.location.value
+			jobHistory.description = form.description.value
+			jobHistory.technologies = []
+
+			if (form.tech.length > 1) {
+				Array.prototype.forEach.call(form.tech, (t) => {
+					jobHistory.technologies.push(t.value)
+				})
+			} else {
+				jobHistory.technologies.push(form.tech.value)
+			}
+ 			
+ 			jobs.push(jobHistory)
+		})
+
+		this.setState({jobs})
+	}
+
 
 	render() {
 		const { history } = this.state
-
+		console.log(this.state)
 		return (
 			<div className='form--container'>
 				<div className='form--border'>
 					<h3>Work History</h3>
 					
-					<form>
+					<div>
 						{
 							history.map((position, i) => {
 								return (
@@ -50,12 +77,14 @@ export default class Form extends Component {
 								)
 							})
 						}
-						<div className='form--controls'>
-							<button className="form--add-p"
-								onClick={this.addPosition.bind(this)}>Add Position</button>
-							<input type='submit' value='submit'/>
-						</div>
-					</form>
+					</div>
+					<div className='form--controls'>
+						<button className="form--add-p"
+							onClick={this.addPosition.bind(this)}>Add Position</button>
+						<input type='submit' 
+							   value='submit'
+							   onClick={this.handleSubmit.bind(this)}/>
+					</div>
 				</div>
 			</div>
 		)
