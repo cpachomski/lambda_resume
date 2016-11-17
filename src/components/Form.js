@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FormSingle from './FormSingle';
+import fs from 'fs';
 
 export default class Form extends Component {
 	constructor() {
@@ -58,8 +59,19 @@ export default class Form extends Component {
 		})
 
 		this.setState({jobs})
+		this.writeJobsToEnv(jobs)
 	}
 
+	writeJobsToEnv(jobs) {
+		console.log(jobs);
+		fetch('/makeLambda', {
+			method: 'POST',
+			headers: new Headers({
+				'Content-Type': 'application/json'
+			}),
+			body: jobs
+		})
+	}
 
 	render() {
 		const { history } = this.state
